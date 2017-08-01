@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    background: #0079bf;
+}
+
+textarea {
+    border: none;
+    outline: none;
+}
+#header {
+    background: rgba(0,0,0,.15);
+    height: 40px;
+    line-height: 4;
+}
+#main {
+    padding: 0 20px;
+}
+#main h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#main .list-wrapper {
+    height: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.js-list-content,
+.js-add-list {
+    width: 270px;
+    margin: 0 5px;
+    display: inline-block !important;
+}
+#main .list {
+    background: #E2E4E6;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    max-height: 100%;
+}
+#main .list-header {
+    padding-right: 60px;
+    padding: 8px 10px;
+    position: relative;
+}
+#main .list-header-name {
+    background: 0 0;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    font-weight: 700;
+    margin: -3px -5px;
+    min-height: 24px;
+    height: 24px !important;
+    padding: 3px 5px;
+    resize: none;
+    max-height: 16pc;
+    color: #4d4d4d;
+    -webkit-appearance: none;
+    overflow: hidden; 
+    word-wrap: break-word; 
+    line-height: 16px;
+    font-size: 14px;
+    width: 95%;
+    cursor: pointer;
+}
+.list-header-name.edit {
+    background: white;
+    cursor: auto;
+}
+#main .list-cards {
+    overflow-y: auto;
+    margin: 0 4px;
+    padding: 0 4px;
+    padding-bottom: 5px;
+}
+.list-card {
+    cursor: pointer;
+    margin-bottom: 6px;
+    max-width: 300px;
+    min-height: 0;
+    position: relative;
+    z-index: 0;
+}
+.card-composer.empty .cc-controls {
+    display: none;
+}
+.card-composer.empty .list-card-details {
+    background: transparent;
+    border: 0;
+    padding-left: 3px;
+}
+.card-composer.empty .list-card-details textarea {
+    height: 20px !important;
+    color: #8c8c8c;
+    cursor: pointer;
+}
+.list-card-details {
+    overflow: hidden;
+    padding: 6px 6px 2px 8px;
+    position: relative;
+    z-index: 10;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    margin-bottom: 6px;
+    border-radius: 3px;
+    -webkit-transition: all .25s  ease;
+    -moz-transition: all .25s  ease;
+    transition: all .25s  ease;
+}
+.card-detail:hover {
+    background-color: #EDEFF0;
+}
+.list-card-title {
+    clear: both;
+    font-weight: 400;
+    margin: 0 0 4px;
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #4d4d4d;
+    line-height: 8px;
+    display: inline-block;
+    resize: none;
+    height: auto !important;
+    margin: 0;
+}
+#main .js-add-list {
+    height: auto;
+    min-height: 30px;
+    padding: 4px;
+    border-radius: 3px;
+    width: 270px;
+    background: rgba(0,0,0,.12);
+    cursor: pointer;
+    color: #fff;
+    transition: background 85ms ease-in,opacity 40ms ease-in,border-color 85ms ease-in;
+}
+.js-add-card,
+#main .js-add-list.active .js-save-edit {
+    background: linear-gradient(to bottom,#61BD4F 0,#5AAC44 100%);
+    box-shadow: 0 1px 0 #3F6F21;
+    color: #fff;
+    min-height: 30px;
+    height: 30px;
+    margin-top: 0;
+    display: inline-block;
+    font-weight: 700;
+    line-height: 22px;
+    margin: 4px 4px 2px 0;
+    padding: 4px 20px;
+    border-radius: 3px;
+    border: 0;
+    float: left;
+    font-size: 13px;
+}
+.js-cancel,
+#main .js-add-list.active .js-cancel-edit {
+    float: left;
+    font-size: 35px;
+    line-height: 35px;
+    color: #999;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#main .js-add-list:hover {
+    background: rgba(0,0,0,.3);
+}
+#main .js-add-list.active {
+    background-color: #E2E4E6;
+}
+#main .js-add-list.active span {
+    display: none;
+}
+#main .js-add-list.active input {
+    display: block;
+    background: rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 8px rgba(0,0,0,.15);
+    margin: 0;
+    transition: margin 85ms ease-in,background 85ms ease-in;
+    min-height: 34px;
+    height: auto;
+    border: 1px solid #CDD2D4;
+    border-radius: 3px;
+    padding: 4px;
+    color: #4d4d4d;
+}
+#main .js-add-list.active input::-webkit-input-placeholder {
+    color: #8f8f8f;
+}
+#main .js-add-list.active .list-add-controls {
+    display: inline-block;
+}
+#main .js-add-list span {
+    padding: 0 7px;
+    color: rgba(255,255,255,.7);
+    display: block;
+}
+#main .js-add-list .list-add-controls,
+#main .js-add-list input {
+    display: none;
+}
+.btn-edit-card,
+.btn-delete-card {
+    position: absolute;
+    font-size: 15px;
+    top: 5px;
+    color: rgba(77, 77, 77, 0.82);
+    background-color: #D6DADC;
+    opacity: 0;
+    padding: 3px;
+    border-radius: 3px;
+    transition: .2s all ease;
+}
+.btn-edit-card {
+    right: 35px;
+}
+.btn-delete-card {
+    right: 8px;
+}
+.list-card-details:hover .btn-edit-card,
+.list-card-details:hover .btn-delete-card {
+    opacity: 1;
+}
+.btn-delete-table {
+    position: absolute;
+    font-size: 20px;
+    right: 2px;
+    top: 7px;
+    opacity: 0;
+    color: rgba(77, 77, 77, 0.82);
+    cursor: pointer;
+}
+.js-list-header:hover .btn-delete-table {
+    opacity: 0.5;
+}
+.open-card-composer {
+    color: #8c8c8c;
+    display: block;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-bottom: 7px;
+}
