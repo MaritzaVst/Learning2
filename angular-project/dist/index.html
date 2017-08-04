@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="tablaApp"><head><link href="css/app.css" rel="stylesheet"></head>
+    <head>
+        <meta charset="UTF-8">
+    <body>
+        <header>
+            <div class="container">
+                <h3 class="text-center">{{ "Hola mundo :D" }}</h3>
+                <div id="search" class="form-group">
+                    <input type="text" class="form-control" ng-model="busqueda" placeholder="Ingresar búsqueda...">
+                </div>
+            </div>
+        </header>
+        <section id="main" ng-controller="tableCtrl">
+            <div id="confe" class="container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="datos in dataJson | filter:busqueda" >
+                            <td>{{ datos.Id }}</td>
+                            <td>{{ datos.Firstname }}</td>
+                            <td>{{ datos.Lastname }}</td>
+                            <td>{{ datos.Cellphone }}</td>
+                        </tr>
+                    </tbody> 
+                </table>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add New Info</button>
+            </div>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="modalCtrl">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="id">Id</label>
+                                <input type="text" class="form-control" id="id" placeholder="Numero de orden" ng-model="user.Id">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" class="form-control" id="name" placeholder="Nombre" ng-model="user.Firstname">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="lastname">Apellido</label>
+                                <input type="text" class="form-control" id="lastname" placeholder="Apellido" ng-model="user.Lastname">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="movil">Telefono</label>
+                                <input type="text" class="form-control" id="movil" placeholder="Telefono" ng-model="user.Cellphone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveData()">Save changes</button>
+                    </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+    <script type="text/javascript" src="bootstrap.js"></script><script type="text/javascript" src="app.js"></script></body>
+</html>
