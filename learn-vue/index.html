@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1 v-show="show">{{ name | uppercase }}</h1>
+            <p>Este es un contador: {{ contador }} </p>
+            <button @click="contador ++" type="">Sumar 1</button>
+
+            <form @submit.prevent="submit" met  hod="get">
+                <template v-for= "curso in cursos">
+                    <curso :curso="curso" v-on:checked="selectCurso"></curso> 
+                </template>
+                <button type="submit">ENVIAR</button>
+            </form>
+        </div>
+        <script src="node_modules/vue/dist/vue.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

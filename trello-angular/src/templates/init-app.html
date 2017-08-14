@@ -1,0 +1,10 @@
+<div class="js-add-list list-wrapper {{ class }}" ng-class="class">
+    <form class="ng-pristine ng-valid">
+        <span class="placeholder js-open-add-list" ng-click="changeClass()">Añadir una lista...</span>
+        <input class="list-name-input" type="text" name="name" placeholder="Añadir una lista..." autocomplete="off" dir="auto" maxlength="512">
+        <div class="list-add-controls u-clearfix">
+            <input class="js-save-edit" type="submit" value="Guardar" ng-click="addTable()">
+            <a class="icon-lg icon-close dark-hover js-cancel-edit" href="#" ng-click="changeClass()">×</a>
+        </div>
+    </form>
+</div>

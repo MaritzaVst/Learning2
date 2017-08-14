@@ -5,11 +5,10 @@ var webpackProvidePlugin = require("webpack-provide-global-plugin");
 var webpack = require('webpack');
 var path = require("path");
 
-
 module.exports = {
     entry: {
+        materialize: 'materialize-loader!./materialize.config.js',
         app: './src/index.js'
-        // bootstrap: 'bootstrap-loader'
     },
     output: {
         path: __dirname + '/dist',
@@ -24,8 +23,8 @@ module.exports = {
                     use: [ "css-loader", "sass-loader"]
                 })
             },
-            { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
-            { test: /\.(ttf|eot|woff2?|svg)$/, loader: 'file-loader?name=fonts/[name].[ext]' }
+            { test: /\.(woff2?|svg)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff'},
+            { test: /\.(ttf|eot|woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader?name=fonts/[name].[ext]' }
         ]
     },
     plugins: [

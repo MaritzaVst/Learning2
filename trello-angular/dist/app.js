@@ -60,32 +60,93 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
-var angular = __webpack_require__(2)
+__webpack_require__(17);
+var angular = __webpack_require__(18);
+var template = __webpack_require__(20);
+var tableTemplate = __webpack_require__(22);
+
+function boxInitial($scope) {
+	var ctrl = this;
+	$scope.class = "";
+	$scope.changeClass = function(){
+		if ($scope.class === "active") {
+			$scope.class = ""
+		} else {
+			$scope.class = "active"
+		}
+		
+	}
+	$scope.elemento = "<h1>hola</h1>";
+	$scope.addTable = function(){
+		console.log("click")
+		$scope.getTemplateUrl = function(){
+			return tableTemplate
+		}
+		// $scope.$emit('tableTemplate', tableTemplate);
+	}
+}
+
+function table ($scope) {
+	var prueba = "<h1>Holi</h1>"
+	$scope.getTemplateUrl = ''
+	$scope.$on('tableTemplate', function(event, data){
+		console.log(data)
+		$scope.getTemplateUrl = tableTemplate
+	})
+	// return tableTemplate
+}
+angular.module('trello', [])
+	.component('initial', {
+		templateUrl: template,
+		controller: boxInitial
+	})
+	.component('prueba', {
+		template: '<ng-include src="elemento"/>',
+		controller: boxInitial
+	})
+
+
+	// require("./table.js");
 
 /***/ }),
-/* 1 */
+/* 17 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 2 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(3);
+__webpack_require__(19);
 module.exports = angular;
 
 
 /***/ }),
-/* 3 */
+/* 19 */
 /***/ (function(module, exports) {
 
 /**
@@ -33460,6 +33521,25 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+var path = 'C:/Learning/trello-angular/src/templates/init-app.html';
+var html = "<div class=\"js-add-list list-wrapper {{ class }}\" ng-class=\"class\">\r\n    <form class=\"ng-pristine ng-valid\">\r\n        <span class=\"placeholder js-open-add-list\" ng-click=\"changeClass()\">Añadir una lista...</span>\r\n        <input class=\"list-name-input\" type=\"text\" name=\"name\" placeholder=\"Añadir una lista...\" autocomplete=\"off\" dir=\"auto\" maxlength=\"512\">\r\n        <div class=\"list-add-controls u-clearfix\">\r\n            <input class=\"js-save-edit\" type=\"submit\" value=\"Guardar\" ng-click=\"addTable()\">\r\n            <a class=\"icon-lg icon-close dark-hover js-cancel-edit\" href=\"#\" ng-click=\"changeClass()\">×</a>\r\n        </div>\r\n    </form>\r\n</div>\r\n";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
+
+/***/ }),
+/* 21 */,
+/* 22 */
+/***/ (function(module, exports) {
+
+var path = 'C:/Learning/trello-angular/src/templates/card-box.html';
+var html = "<div class=\"js-list list-wrapper\">\r\n    <div class=\"list js-list-content\">\r\n        <div class=\"list-header js-list-header clearfix\">\r\n            <textarea class=\"list-header-name\" maxlength=\"512\" readonly=\"\"></textarea>\r\n            <i class=\"material-icons btn-delete btn-delete-table\">close</i>\r\n        </div>\r\n        <div class=\"list-cards clearfix js-list-cards\">\r\n            <div class=\"list-card\"></div>\r\n            <div class=\"card-composer hide\">\r\n                <div class=\"list-card js-composer\">\r\n                    <div class=\"list-card-details u-clearfix\">\r\n                        <textarea class=\"list-card-composer-textarea js-card-title\" dir=\"auto\" style=\"overflow: hidden; word-wrap: break-word; resize: none; height: 54px;\"></textarea>\r\n                    </div>\r\n                </div>\r\n                <div class=\"cc-controls clearfix\">\r\n                    <input class=\"confirm js-add-card\" type=\"submit\" value=\"Añadir\">\r\n                    <a class=\"icon-lg icon-close dark-hover js-cancel\" href=\"#\">×</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <a class=\"open-card-composer js-open-card-composer\" href=\"#\">Añadir una tarjeta...</a>\r\n    </div>\r\n</div>";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
 
 /***/ })
 /******/ ]);
