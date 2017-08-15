@@ -5,13 +5,15 @@
     h2 *TopList {{ selectedCountry }}*
     select(v-model='selectedCountry')
       option(v-for="option in options" :value="option.value") {{ option.name }}
-    ul
+    spinner(v-show='loading')
+    ul(v-show="!loading")
       artist(v-for="artist in artists" v-bind:artist="artist" :key="artist.name")
 </template>
 
 <script>
   import Artist from './components/Artist.vue'
   import getArtists from './api'
+  import Spinner from './components/Spinner.vue'
 
 
   export default {
@@ -25,23 +27,26 @@
           {name: 'Colombia', value: 'colombia'}
         ],
         selectedCountry: 'peru',
-        artists: [] 
+        artists: [],
+        loading: true
       }
     },
     components: {
-      Artist
+      Artist,
+      Spinner
     },
     methods: {
       refreshArtist: function(){
         const self = this;
+        this.loading = true
         getArtists(this.selectedCountry)
         .then(function(artists){
           self.artists = artists
+          self.loading = false
         })
       }
     },
     mounted: function() {
-      console.log('D:')
       this.refreshArtist()
     },
     watch: {
