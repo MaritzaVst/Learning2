@@ -2,26 +2,52 @@
   #app
     img(src='./assets/logo.png')
     h1 Platzi Music
+    h2 *TopList {{ selectedCountry }}*
+    select(v-model='selectedCountry')
+      option(v-for="option in options" :value="option.value") {{ option.name }}
     ul
-      li(v-for="artist in artists") {{ artist.name }}
+      artist(v-for="artist in artists" v-bind:artist="artist" :key="artist.name")
 </template>
 
 <script>
+  import Artist from './components/Artist.vue'
   import getArtists from './api'
+
+
   export default {
     name: 'app',
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
-        artists: []
+        options: [
+          {name: 'España', value: 'spain'},
+          {name: 'Perú', value: 'peru'},
+          {name: 'Colombia', value: 'colombia'}
+        ],
+        selectedCountry: 'peru',
+        artists: [] 
+      }
+    },
+    components: {
+      Artist
+    },
+    methods: {
+      refreshArtist: function(){
+        const self = this;
+        getArtists(this.selectedCountry)
+        .then(function(artists){
+          self.artists = artists
+        })
       }
     },
     mounted: function() {
-      const self = this;
-      getArtists()
-      .then(function(artists){
-        self.artists = artists
-      })
+      console.log('D:')
+      this.refreshArtist()
+    },
+    watch: {
+      selectedCountry: function(){
+        this.refreshArtist()
+      }
     }
   }
 </script>
@@ -37,7 +63,9 @@
 
   h1, h2
     font-weight normal
-
+  
+  h2
+    font-size 18px
   ul
     list-style-type none
     padding 0
