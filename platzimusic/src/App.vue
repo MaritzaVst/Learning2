@@ -7,14 +7,23 @@
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  import getArtists from './api'
+  export default {
+    name: 'app',
+    data () {
+      return {
+        msg: 'Welcome to Your Vue.js App',
+        artists: []
+      }
+    },
+    mounted: function() {
+      const self = this;
+      getArtists()
+      .then(function(artists){
+        self.artists = artists
+      })
     }
   }
-}
 </script>
 
 <style lang="stylus">
