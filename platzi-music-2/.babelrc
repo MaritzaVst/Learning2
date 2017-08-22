@@ -1,0 +1,6 @@
+{
+  "presets": [
+    ["env", { "modules": false }]
+  ]
+}
+/*Modules = false porque la funcionalidad de modules lo estamos viendo con webpack*/

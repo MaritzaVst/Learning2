@@ -1,0 +1,11 @@
+{
+    "extends": "standard",
+
+    "rules": {
+        "no-new": 0
+    },
+
+    "plugins": ["html"]
+}
+
+/*Extiende las reglas de el set Standardjs*/
