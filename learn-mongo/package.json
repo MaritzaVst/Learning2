@@ -1,0 +1,17 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "Mi primera API Rest",
+  "main": "server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "maritzavst",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "express": "4.15.4",
+    "mongoose": "4.11.8",
+    "nodemon": "1.11.0"
+  }
+}
