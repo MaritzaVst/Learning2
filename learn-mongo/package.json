@@ -4,6 +4,7 @@
   "description": "Mi primera API Rest",
   "main": "server",
   "scripts": {
+    "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "maritzavst",
@@ -11,7 +12,9 @@
   "dependencies": {
     "body-parser": "1.17.2",
     "express": "4.15.4",
-    "mongoose": "4.11.8",
+    "mongoose": "4.11.8"
+  },
+  "devDependencies":  {
     "nodemon": "1.11.0"
   }
 }

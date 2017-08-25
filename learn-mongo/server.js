@@ -33,6 +33,15 @@ app.get('/books', function(req, res){
     })
 })
 
+app.get('/books/:_id', function(req, res){
+    Books.getBookById(req.params._id, function(err, book){
+        if(err) {
+            throw err;
+        }
+        res.json(book)
+    })
+})
+
 app.listen(3000)
 
 console.log('Running')
